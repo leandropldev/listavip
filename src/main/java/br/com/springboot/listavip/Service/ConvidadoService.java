@@ -1,4 +1,4 @@
-package br.com.springboot.Service;
+package br.com.springboot.listavip.Service;
 
 import java.util.List;
 
