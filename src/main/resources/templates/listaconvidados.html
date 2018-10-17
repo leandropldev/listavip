@@ -14,12 +14,16 @@
             <th>Nome</th>
             <th>Email</th>
             <th>telefone</th>
+            <th> </th>
         </tr>
         </thead>
         <tr th:each="convidado : ${convidados}">
             <td> <span th:text="${convidado.nome}"></span> </td>
             <td> <span th:text="${convidado.email}"></span> </td>
             <td> <span th:text="${convidado.telefone}"></span> </td>
+            <td> 
+            	<a th:href="@{/remover(id=${convidado.id})}" class="btn btn-danger">Delete</a>
+            </td>
         </tr>
     </table>
 </div>
@@ -36,6 +40,7 @@
         <label for="telefone">Telefone</label>
         <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" />
     </div>
+    
     <button type="submit" class="btn btn-success">Convidar</button>
 </form>
 </div>

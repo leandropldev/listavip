@@ -7,6 +7,7 @@ import org.springframework.data.repository.Repository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,6 +48,14 @@ public class ConvidadoController {
 	public String listaUM(@RequestParam("id") long id, Model model){
 		Convidado convidado = repository.findOne(id);
 		model.addAttribute("convidado", convidado);
+		
+		return "redirect:listaconvidados";
+	}
+	
+	@RequestMapping(value= "/remover{id}", method = RequestMethod.GET)
+	public String removeConvidado(@RequestParam(name="id") Long id){
+		
+		repository.delete(id);
 		
 		return "redirect:listaconvidados";
 	}
