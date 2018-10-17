@@ -3,6 +3,7 @@ package br.com.springboot.listavip;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.Repository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,5 +42,12 @@ public class ConvidadoController {
 
 	    return "redirect:listaconvidados";
 	}
-
+	
+	@RequestMapping(value= "buscaUnica", method = RequestMethod.POST)
+	public String listaUM(@RequestParam("id") long id, Model model){
+		Convidado convidado = repository.findOne(id);
+		model.addAttribute("convidado", convidado);
+		
+		return "redirect:listaconvidados";
+	}
 }
