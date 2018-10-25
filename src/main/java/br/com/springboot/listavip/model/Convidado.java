@@ -3,6 +3,8 @@ package br.com.springboot.listavip.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity(name= "convidado")
 public class Convidado {
@@ -10,9 +12,13 @@ public class Convidado {
 	@Id
     @GeneratedValue
     private Long id;
-
+	
+	@NotNull
+	@Size(min=2, max=30)
     private String nome;
+	@NotNull
     private String email;
+	@NotNull
     private String telefone;
 
     public Convidado(){}

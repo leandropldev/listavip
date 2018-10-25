@@ -27,21 +27,26 @@
         </tr>
     </table>
 </div>
-<form action="salvar" method="post">
+<form action="#" th:action="@{salvar}" th:object="${novoConvidado}" method="post" >
     <div class="form-group">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" />
+        <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name Error</span>
+        <input type="text" th:field="*{nome}" class="form-control" id="nome" name="nome" placeholder="Nome" />
+        
     </div>
     <div class="form-group">
         <label for="email">Email</label>
+        <label th:if="${#fields.hasErrors('email')}" th:errors="email">Name Error</label>
         <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
     </div>
     <div class="form-group">
         <label for="telefone">Telefone</label>
+        <label th:if="${#fields.hasErrors('telefone')}" th:errors="telefone">Name Error</label>
         <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" />
     </div>
     
-    <button type="submit" class="btn btn-success">Convidar</button>
+    <button type="submit" class="btn btn-success">Convidar</button> 
+    <label><span th:text="${erro}"></span> </label>
 </form>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

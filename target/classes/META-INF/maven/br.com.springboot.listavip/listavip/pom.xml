@@ -35,7 +35,13 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<version>1.4.2.RELEASE</version>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>br.com.springboot.defaultEmailSender</groupId>
+			<artifactId>defaultEmailSender</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
 	</dependencies>
 
 </project>
