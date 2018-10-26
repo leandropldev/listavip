@@ -1,0 +1,5 @@
+br\com\springboot\listavip\model\Convidado.class
+br\com\springboot\listavip\repository\ConvidadoRepository.class
+br\com\springboot\listavip\Service\ConvidadoService.class
+br\com\springboot\listavip\Configuracao.class
+br\com\springboot\listavip\ConvidadoController.class

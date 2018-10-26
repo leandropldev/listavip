@@ -26,8 +26,8 @@ public class ConvidadoController{
 	}
 
 	@RequestMapping("listaconvidados")
-	public String listaConvidados(Model model){
-		
+		public String listaConvidados(Model model){
+			
 		Iterable<Convidado> convidados = repository.findAll();
 		model.addAttribute("novoConvidado", new Convidado());
 		model.addAttribute("convidados", convidados);
@@ -50,8 +50,8 @@ public class ConvidadoController{
 		
 	    repository.save(novoConvidado);
 	    
-	    new EmailService();
-		EmailService.sendEmail(novoConvidado.getNome(), novoConvidado.getEmail());
+	    EmailService em = new EmailService();
+		em.sendEmail(novoConvidado.getNome(), novoConvidado.getEmail());
 	    
 	    return "redirect:listaconvidados";
 	}
